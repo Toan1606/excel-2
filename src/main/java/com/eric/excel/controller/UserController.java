@@ -5,10 +5,7 @@ import com.eric.excel.service.IUserServices;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -26,5 +23,12 @@ public class UserController {
     public ResponseEntity<UserDTO> saveUser(@Valid @RequestBody UserDTO userDTO) {
         UserDTO response = userServices.saveUser(userDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping("/excel/export")
+    public ResponseEntity<String> exportExcel() {
+
+
+        return ResponseEntity.ok("");
     }
 }
